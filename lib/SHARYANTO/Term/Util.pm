@@ -39,12 +39,28 @@ $o = SHARYANTO::Term::Util::object->new;
 1;
 # ABSTRACT: Terminal utilities
 
+=head1 SYNOPSIS
+
+ use SHARYANTO::Term::Util qw(hr);
+ hr;
+
+Sample output:
+
+ =============================================================================
+
+ hr('x----');
+
+Sample output:
+
+ x----x----x----x----x----x----x----x----x----x----x----x----x----x----x----x-
+
+
 =head1 FUNCTIONS
 
 =head2 hr([CHAR]) => optional STR
 
 Print (under void context) or return (under scalar/array context) a horizontal
-bar with the width of the terminal.
+ruler with the width of the terminal.
 
 C<CHAR> is optional, can be multicharacter, but cannot be empty string. The
 defautl is C<=>.
