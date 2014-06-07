@@ -68,6 +68,10 @@ defautl is C<=>.
 Under Windows, when printing, will shave one character at the end because the
 terminal cursor will move a line down when printing at the last column.
 
+Terminal width is currently determined using L<SHARYANTO::Role::TermAttrs>,
+which will either use environment variable C<COLUMNS> or detecting using
+L<Term::Size>, or if all those fail, use a hard-coded default of 80.
+
 
 =head1 SEE ALSO
 
