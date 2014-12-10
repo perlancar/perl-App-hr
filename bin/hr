@@ -1,9 +1,13 @@
 #!perl
 
+# DATE
+# VERSION
+
 use App::hr qw(hr);
 hr shift;
 
 # ABSTRACT: Print horizontal bar on the terminal
+# PODNAME: hr
 
 =head1 SYNOPSIS
 
