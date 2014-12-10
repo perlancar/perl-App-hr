@@ -1,0 +1,18 @@
+#!perl
+
+use App::hr qw(hr);
+hr shift;
+
+# ABSTRACT: Print horizontal bar on the terminal
+
+=head1 SYNOPSIS
+
+ % hr
+ =============================================================================
+
+ % hr x----
+ x----x----x----x----x----x----x----x----x----x----x----x----x----x----x----x-
+
+You can also use the C<hr> function in L<App::hr>.
+
+

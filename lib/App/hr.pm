@@ -1,11 +1,11 @@
-package SHARYANTO::Term::Util;
+package App::hr;
+
+# DATE
+# VERSION
 
 use 5.010001;
 use strict;
 use warnings;
-
-# VERSION
-# DATE
 
 use Exporter;
 our @ISA = qw(Exporter);
@@ -30,18 +30,19 @@ sub hr {
 
 # a dummy class just to use TermAttrs
 {
-    package SHARYANTO::Term::Util::object;
+    package # hide from PAUSE
+        App::hr::Class;
     use Moo;
-    with 'SHARYANTO::Role::TermAttrs';
+    with 'Term::App::Role::Attrs';
 }
-$o = SHARYANTO::Term::Util::object->new;
+$o = App::hr::Class->new;
 
 1;
-# ABSTRACT: Terminal utilities
+# ABSTRACT: Print horizontal bar on the terminal
 
 =head1 SYNOPSIS
 
- use SHARYANTO::Term::Util qw(hr);
+ use App::hr qw(hr);
  hr;
 
 Sample output:
@@ -53,6 +54,8 @@ Sample output:
 Sample output:
 
  x----x----x----x----x----x----x----x----x----x----x----x----x----x----x----x-
+
+You can also use the provided CLI L<hr>.
 
 
 =head1 FUNCTIONS
@@ -68,13 +71,8 @@ defautl is C<=>.
 Under Windows, when printing, will shave one character at the end because the
 terminal cursor will move a line down when printing at the last column.
 
-Terminal width is currently determined using L<SHARYANTO::Role::TermAttrs>,
-which will either use environment variable C<COLUMNS> or detecting using
+Terminal width is currently determined using L<Term::App::Role::Attrs>, which
+will either use environment variable C<COLUMNS> or detecting using
 L<Term::Size>, or if all those fail, use a hard-coded default of 80.
-
-
-=head1 SEE ALSO
-
-L<SHARYANTO>
 
 =cut
