@@ -1,5 +1,12 @@
 Revision history for App-hr
 
+0.05    2015-06-17 (PERLANCAR)
+
+	- No functional changes.
+
+	- Show option --color (-c) in Synopsis.
+
+
 0.04    2015-06-17 (PERLANCAR)
 
         - Add options: --color (-c), --version (-v), --help (-h, -?).
