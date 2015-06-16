@@ -46,7 +46,11 @@ hr($pattern, $color);
  % hr
  =============================================================================
 
+ % hr -c red; # will output the same bar, but in red
+
  % hr x----
  x----x----x----x----x----x----x----x----x----x----x----x----x----x----x----x-
+
+ % hr --help
 
 You can also use the C<hr> function in L<App::hr>.
