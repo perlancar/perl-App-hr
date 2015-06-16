@@ -54,3 +54,10 @@ hr($pattern, $color);
  % hr --help
 
 You can also use the C<hr> function in L<App::hr>.
+
+
+=head1 OPTIONS
+
+=head2 --color=s, -c
+
+=head2 --pattern=s, -p
