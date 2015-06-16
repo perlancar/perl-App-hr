@@ -1,5 +1,10 @@
 Revision history for App-hr
 
+0.04    2015-06-17 (PERLANCAR)
+
+        - Add options: --color (-c), --version (-v), --help (-h, -?).
+
+
 0.03    2014-12-10 (PERLANCAR)
 
         - First release, renamed from SHARYANTO-Term-Util to App-hr.
