@@ -3,8 +3,40 @@
 # DATE
 # VERSION
 
+use 5.010001;
+use strict 'subs', 'vars';
+use warnings;
+
+use Getopt::Long::EvenLess;
 use App::hr qw(hr);
-hr shift;
+
+my $color;
+my $pattern;
+
+GetOptions(
+    'color|c=s' => sub { $color = $_[1] },
+    'pattern|p=s' => sub { $pattern = $_[1] },
+    'help|h|?' => sub {
+        print <<'_';
+hr - Print horizontal bar on the terminal
+
+Usage:
+  hr [options] [pattern]
+  hr --help (or -h, -?)
+  hr --version (-v)
+Options:
+  --color=s, -c    Color text, all Term::ANSIColor color expression is supported
+  --pattern=s, -p  Set pattern (also via first argument)
+_
+        exit 0;
+    },
+    'version|v' => sub {
+        say "hr version ", ${__PACKAGE__.'::VERSION'} // 'dev';
+        exit 0;
+    },
+) or exit 1;
+$pattern //= $ARGV[0] if @ARGV;
+hr($pattern, $color);
 
 # ABSTRACT: Print horizontal bar on the terminal
 # PODNAME:
@@ -18,5 +50,3 @@ hr shift;
  x----x----x----x----x----x----x----x----x----x----x----x----x----x----x----x-
 
 You can also use the C<hr> function in L<App::hr>.
-
-

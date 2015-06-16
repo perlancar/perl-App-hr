@@ -16,14 +16,18 @@ our @EXPORT_OK = qw(
 my $o;
 
 sub hr {
-    my $char = shift;
-    $char  = "=" if !defined($char) || !length($char);
+    my ($pattern, $color) = @_;
+    $pattern  = "=" if !defined($pattern) || !length($pattern);
     my $w  = $o->term_width;
-    my $n  = int($w / length($char))+1;
-    my $hr = substr(($char x $n), 0, $w);
+    my $n  = int($w / length($pattern))+1;
+    my $hr = substr(($pattern x $n), 0, $w);
     return $hr if defined(wantarray);
     if ($^O =~ /MSWin/) {
         substr($hr, -1, 1) = '';
+    }
+    if ($color) {
+        require Term::ANSIColor;
+        $hr = Term::ANSIColor::colored([$color], $hr);
     }
     say $hr;
 }
@@ -60,12 +64,12 @@ You can also use the provided CLI L<hr>.
 
 =head1 FUNCTIONS
 
-=head2 hr([CHAR]) => optional STR
+=head2 hr([PATTERN]) => optional STR
 
 Print (under void context) or return (under scalar/array context) a horizontal
 ruler with the width of the terminal.
 
-C<CHAR> is optional, can be multicharacter, but cannot be empty string. The
+C<PATTERN> is optional, can be multicharacter, but cannot be empty string. The
 defautl is C<=>.
 
 Under Windows, when printing, will shave one character at the end because the
