@@ -13,9 +13,50 @@ use App::hr qw(hr);
 my $color;
 my $pattern;
 
+# INSERT_BLOCK: Function::Embeddable pick
+
+sub _set_random_pattern {
+    $pattern = pick(
+        '.',
+        '-',
+        '=',
+        'x',
+        'x-',
+        'x---',
+        'x-----',
+        '*',
+        '*-',
+        '*---',
+        '*-----',
+        '/\\',
+        'v',
+        'V',
+    );
+}
+
+sub _set_random_color {
+    $color = pick(
+        'red',
+        'bright_red',
+        'green',
+        'bright_green',
+        'blue',
+        'bright_blue',
+        'cyan',
+        'bright_cyan',
+        'magenta',
+        'bright_magenta',
+        'yellow',
+        'bright_yellow',
+    );
+}
+
 GetOptions(
     'color|c=s' => sub { $color = $_[1] },
     'pattern|p=s' => sub { $pattern = $_[1] },
+    'random-pattern' => \&_set_random_pattern,
+    'random-color' => \&_set_random_color,
+    'r' => sub { _set_random_pattern(); _set_random_color() },
     'help|h|?' => sub {
         print <<'_';
 hr - Print horizontal bar on the terminal
@@ -25,8 +66,11 @@ Usage:
   hr --help (or -h, -?)
   hr --version (-v)
 Options:
-  --color=s, -c    Color text, all Term::ANSIColor color expression is supported
-  --pattern=s, -p  Set pattern (also via first argument)
+  --color=s, -c     Color text, all Term::ANSIColor colors are supported
+  --pattern=s, -p   Set pattern (also via first argument)
+  --random-pattern  Use random pattern
+  --random-color    Use random color
+  -r                Shortcut for --random-pattern --random-color
 _
         exit 0;
     },
@@ -46,10 +90,19 @@ hr($pattern, $color);
  % hr
  =============================================================================
 
- % hr -c red; # will output the same bar, but in red
+ % hr -c red  ;# will output the same bar, but in red
 
  % hr x----
  x----x----x----x----x----x----x----x----x----x----x----x----x----x----x----x-
+
+ % hr --random-pattern
+
+ % hr --random-color
+
+ % hr -r  ;# shortcut for --random-pattern --random-color
+
+ % hr -- -x-  ;# specify a pattern that starts with a dash
+ % hr -p -x-  ;# ditto
 
  % hr --help
 
@@ -61,3 +114,11 @@ You can also use the C<hr> function in L<App::hr>.
 =head2 --color=s, -c
 
 =head2 --pattern=s, -p
+
+=head2 --random-pattern
+
+=head2 --random-color
+
+=head2 -r
+
+Shortcut for --random-pattern --random-color.
