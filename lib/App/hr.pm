@@ -13,14 +13,18 @@ our @EXPORT_OK = qw(
                        hr
                );
 
-my $o;
+my $term_width;
+if (eval { require Term::Size; 1 }) {
+    ($term_width, undef) = Term::Size::chars();
+} else {
+    $term_width = 80;
+}
 
 sub hr {
     my ($pattern, $color) = @_;
     $pattern  = "=" if !defined($pattern) || !length($pattern);
-    my $w  = $o->term_width;
-    my $n  = int($w / length($pattern))+1;
-    my $hr = substr(($pattern x $n), 0, $w);
+    my $n  = int($term_width / length($pattern))+1;
+    my $hr = substr(($pattern x $n), 0, $term_width);
     return $hr if defined(wantarray);
     if ($^O =~ /MSWin/) {
         substr($hr, -1, 1) = '';
@@ -31,15 +35,6 @@ sub hr {
     }
     say $hr;
 }
-
-# a dummy class just to use TermAttrs
-{
-    package # hide from PAUSE
-        App::hr::Class;
-    use Moo;
-    with 'Term::App::Role::Attrs';
-}
-$o = App::hr::Class->new;
 
 1;
 # ABSTRACT: Print horizontal bar on the terminal
