@@ -1,5 +1,11 @@
 Revision history for App-hr
 
+0.09    2015-06-17 (PERLANCAR)
+
+        - Replace Term::App::Role::Attrs with Term::Size directly, to reduce
+          startup overhead.
+
+
 0.08    2015-06-17 (PERLANCAR)
 
 	- No functional changes.
