@@ -1,5 +1,12 @@
 Revision history for App-hr
 
+0.08    2015-06-17 (PERLANCAR)
+
+	- No functional changes.
+
+	- [dzil] Use DZP:IfBuilt.
+
+
 0.07    2015-06-17 (PERLANCAR)
 
 	- Add --random-color, --random-pattern, -r.
