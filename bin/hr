@@ -53,6 +53,8 @@ sub _set_random_color {
         'bright_magenta',
         'yellow',
         'bright_yellow',
+        'white',
+        'bright_white',
     );
 }
 
