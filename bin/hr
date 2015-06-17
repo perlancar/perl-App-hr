@@ -13,7 +13,12 @@ use App::hr qw(hr);
 my $color;
 my $pattern;
 
-# INSERT_BLOCK: Function::Embeddable pick
+# IFBUILT
+## INSERT_BLOCK: Function::Embeddable pick
+# END IFBUILT
+# IFUNBUILT
+BEGIN { require Function::Embeddable; *pick = \&Function::Embeddable::pick }
+# END IFUNBUILT
 
 sub _set_random_pattern {
     $pattern = pick(
