@@ -26,10 +26,9 @@ if (eval { require Term::Size; 1 }) {
 
 sub hr {
     my ($pattern, $color) = @_;
-    $pattern  = "=" if !defined($pattern) || !length($pattern);
+    $pattern = "=" if !defined($pattern) || !length($pattern);
     my $n  = int($term_width / length($pattern))+1;
     my $hr = substr(($pattern x $n), 0, $term_width);
-    return $hr if defined(wantarray);
     if ($^O =~ /MSWin/) {
         substr($hr, -1, 1) = '';
     }
@@ -37,6 +36,7 @@ sub hr {
         require Term::ANSIColor;
         $hr = Term::ANSIColor::colored([$color], $hr);
     }
+    return $hr if defined(wantarray);
     say $hr;
 }
 
@@ -144,8 +144,9 @@ sub hr_app {
         );
     }
 
-    [200, "OK", hr($args{pattern}, $args{color}),
-     {'cmdline.skip_format' => 1}];
+    my $res = hr($args{pattern}, $args{color});
+
+    [200, "OK", $res, {'cmdline.skip_format' => 1}];
 }
 
 1;
