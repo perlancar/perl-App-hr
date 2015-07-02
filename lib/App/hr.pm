@@ -152,6 +152,8 @@ sub hr_app {
 1;
 # ABSTRACT: Print horizontal bar on the terminal
 
+=for Pod::Coverage ^(pick)$
+
 =head1 SYNOPSIS
 
  use App::hr qw(hr);

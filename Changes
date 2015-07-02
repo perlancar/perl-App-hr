@@ -1,5 +1,12 @@
 Revision history for App-hr
 
+0.10    2015-07-02 (PERLANCAR)
+
+        - Switch to using Perinci::CmdLine::Inline (startup overhead reduced).
+
+        - Add colors for random color: white, bright_white.
+
+
 0.09    2015-06-17 (PERLANCAR)
 
         - Replace Term::App::Role::Attrs with Term::Size directly, to reduce
