@@ -3,7 +3,7 @@ package App::hr;
 # DATE
 # VERSION
 
-use 5.010001;
+use feature 'say';
 use strict;
 use warnings;
 
