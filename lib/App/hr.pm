@@ -172,7 +172,7 @@ Sample output:
 You can also use the provided CLI L<hr>.
 
 
-=head1 FUNCTIONS_TMP
+=head1 prepend:FUNCTIONS
 
 =head2 hr([PATTERN]) => optional STR
 
