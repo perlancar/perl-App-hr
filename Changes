@@ -1,5 +1,18 @@
 Revision history for App-hr
 
+0.12    2015-07-06 (PERLANCAR)
+
+	- Use Rinci function metadata attribute cmdline.skip_format=>1 so
+	  that pericmd-inline skips providing --format, --json, --naked-res
+	  [RT#105641].
+
+	- Replace 'use 5.010' with 'use feature say' to avoid
+	  Data::Dumper's Deparse feature producing 'no feature :all' which
+	  is not supported by perl 5.14-.
+
+	- Use prepend: section to avoid clash in FUNCTIONS POD section.
+
+
 0.11    2015-07-02 (PERLANCAR)
 
         - No functional changes.
