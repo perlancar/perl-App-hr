@@ -181,19 +181,17 @@ You can also use the provided CLI L<hr>.
 
 =head1 prepend:FUNCTIONS
 
-=head2 hr([PATTERN]) => optional STR
+=head2 hr([ PATTERN [, COLOR ] ]) => optional STR
 
 Print (under void context) or return (under scalar/array context) a horizontal
 ruler with the width of the terminal.
 
+Terminal width is determined using L<Term::Size>.
+
 C<PATTERN> is optional, can be multicharacter, but cannot be empty string. The
 defautl is C<=>.
 
-Under Windows, when printing, will shave one character at the end because the
-terminal cursor will move a line down when printing at the last column.
-
-Terminal width is currently determined using L<Term::App::Role::Attrs>, which
-will either use environment variable C<COLUMNS> or detecting using
-L<Term::Size>, or if all those fail, use a hard-coded default of 80.
+Under Windows, will shave one character at the end because the terminal cursor
+will move a line down when printing at the last column.
 
 =cut
