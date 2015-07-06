@@ -1,6 +1,20 @@
 Revision history for App-hr
 
+0.14    2015-07-06 (PERLANCAR)
+
+        - No functional changes.
+
+        - Build fixes: remove unnecessary dependency to
+          Perinci::CmdLine::Inline, remove mistaken dependency to
+          Code::Embeddable.
+
+        - Update/fix/tweak docs.
+
+
 0.13    2015-07-06 (PERLANCAR)
+
+        - UPDATE: this version is broken (mistakenly dependent to
+          Code::Embeddable).
 
         - No functional changes.
 
@@ -8,6 +22,9 @@ Revision history for App-hr
 
 
 0.12    2015-07-06 (PERLANCAR)
+
+        - UPDATE: this version is broken (mistakenly dependent to
+          Code::Embeddable).
 
 	- Use Rinci function metadata attribute cmdline.skip_format=>1 so
 	  that pericmd-inline skips providing --format, --json, --naked-res
