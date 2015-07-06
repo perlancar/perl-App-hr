@@ -51,26 +51,45 @@ $SPEC{hr_app} = {
     summary => 'Print horizontal bar on the terminal',
     description => <<'_',
 
+`hr` can be useful as a marker/separator, especially if you use other commands
+that might produce a lot of output, and you need to scroll back lots of pages to
+see previous output. Example:
+
+    % hr; command-that-produces-lots-of-output
+    ============================================================================
+    Command output
+    ...
+    ...
+    ...
+
+    % hr -r; some-command; hr -r; another-command
+
+Usage:
+
     % hr
     ============================================================================
 
     % hr -c red  ;# will output the same bar, but in red
 
+    % hr --random-color  ;# will output the same bar, but in random color
+
     % hr x----
     x----x----x----x----x----x----x----x----x----x----x----x----x----x----x----x
-
-    % hr --random-pattern
-
-    % hr --random-color
-
-    % hr -r  ;# shortcut for --random-pattern --random-color
 
     % hr -- -x-  ;# specify a pattern that starts with a dash
     % hr -p -x-  ;# ditto
 
+    % hr --random-pattern
+    vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+
+    % hr --random-pattern
+    *---*---*---*---*---*---*---*---*---*---*---*---*---*---*---*---*---*---*---
+
+    % hr -r  ;# shortcut for --random-pattern --random-color
+
     % hr --help
 
-You can also use the `hr` function in `App::hr` module.
+If you use Perl, you can also use the `hr` function in `App::hr` module.
 
 _
     args_rels => {
