@@ -4,7 +4,7 @@ package App::hr;
 # VERSION
 
 use feature 'say';
-use strict;
+use strict 'subs', 'vars';
 use warnings;
 
 use Exporter;
@@ -15,7 +15,13 @@ our @EXPORT_OK = qw(
 
 our %SPEC;
 
-# INSERT_BLOCK_FROM_MODULE: Function::Embeddable pick
+# IFBUILT
+## INSERT_BLOCK_FROM_MODULE: Code::Embeddable pick
+# END IFBUILT
+# IFUNBUILT
+use Code::Embeddable; *pick = \&Code::Embeddable::pick;
+# END IFUNBUILT
+
 
 my $term_width;
 if (eval { require Term::Size; 1 }) {
@@ -102,6 +108,7 @@ _
             },
         },
     },
+    'cmdline.skip_format' => 1,
 };
 sub hr_app {
     my %args = @_;
@@ -146,7 +153,7 @@ sub hr_app {
 
     my $res = hr($args{pattern}, $args{color});
 
-    [200, "OK", $res, {'cmdline.skip_format' => 1}];
+    [200, "OK", $res];
 }
 
 1;
