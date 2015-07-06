@@ -1,5 +1,12 @@
 Revision history for App-hr
 
+0.13    2015-07-06 (PERLANCAR)
+
+        - No functional changes.
+
+        - [build] Rebuild with newer Perinci::CmdLine::Inline (0.14).
+
+
 0.12    2015-07-06 (PERLANCAR)
 
 	- Use Rinci function metadata attribute cmdline.skip_format=>1 so
