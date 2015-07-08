@@ -127,7 +127,6 @@ _
             },
         },
     },
-    'cmdline.skip_format' => 1,
 };
 sub hr_app {
     my %args = @_;
