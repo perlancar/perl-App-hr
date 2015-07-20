@@ -1,10 +1,17 @@
 Revision history for App-hr
 
+0.15    2015-07-20 (PERLANCAR)
+
+        - No functional changes.
+
+        - [build] Rebuild to add build prereq to Perinci::CmdLine::Inline.
+
+
 0.14    2015-07-06 (PERLANCAR)
 
         - No functional changes.
 
-        - Build fixes: remove unnecessary dependency to
+        - [build] Build fixes: remove unnecessary dependency to
           Perinci::CmdLine::Inline, remove mistaken dependency to
           Code::Embeddable.
 
