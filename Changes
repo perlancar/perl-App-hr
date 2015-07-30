@@ -1,5 +1,15 @@
 Revision history for App-hr
 
+0.19    2015-07-30 (PERLANCAR)
+
+        - No functional changes.
+
+        - [build] Rebuild with updated DZP:GenPericmdScript which now adds
+          prereq to Perinci::CmdLine::Inline for the develop phase, not build
+          (so users do not need to install Perinci::CmdLine::Inline, as should
+          be the case).
+
+
 0.18    2015-07-30 (PERLANCAR)
 
         - No functional changes.
