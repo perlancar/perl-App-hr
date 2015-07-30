@@ -1,5 +1,12 @@
 Revision history for App-hr
 
+0.16    2015-07-30 (PERLANCAR)
+
+        - No functional changes.
+
+        - [build] Rebuild with updated Perinci::CmdLine::Inline to add Abstract.
+
+
 0.15    2015-07-20 (PERLANCAR)
 
         - No functional changes.
