@@ -1,5 +1,14 @@
 Revision history for App-hr
 
+0.18    2015-07-30 (PERLANCAR)
+
+        - No functional changes.
+
+        - [build] Rebuild with updated Perinci::CmdLine::Dump &
+          PWS:Completion::PerinciCmdLine to remove extraneous stuffs from POD
+          (unsupported config/env options, COMPLETION section).
+
+
 0.17    2015-07-30 (PERLANCAR)
 
         - No functional changes.
