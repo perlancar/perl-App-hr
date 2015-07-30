@@ -1,5 +1,13 @@
 Revision history for App-hr
 
+0.17    2015-07-30 (PERLANCAR)
+
+        - No functional changes.
+
+        - [build] Rebuild with updated Perinci::CmdLine::Dump to let
+          Pod::Weaver::Plugin::Rinci insert more stuffs to the POD.
+
+
 0.16    2015-07-30 (PERLANCAR)
 
         - No functional changes.
