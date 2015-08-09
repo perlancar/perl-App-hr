@@ -212,4 +212,9 @@ defautl is C<=>.
 Under Windows, will shave one character at the end because the terminal cursor
 will move a line down when printing at the last column.
 
+
+=head1 SEE ALSO
+
+L<ruler> (L<App::ruler>)
+
 =cut
