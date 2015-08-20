@@ -107,6 +107,12 @@ _
         random_color => {
             schema => ['bool', is=>1],
         },
+        height => {
+            summary => 'Specify height (number of rows)',
+            schema => ['int*', min=>1],
+            default => 1,
+            cmdline_aliases => {H=>{}},
+        },
         pattern => {
             summary => 'Specify a pattern',
             schema => 'str*',
@@ -170,6 +176,7 @@ sub hr_app {
     }
 
     my $res = hr($args{pattern}, $args{color});
+    $res = "$res\n" x $args{height} if $args{height} > 1;
 
     [200, "OK", $res];
 }
