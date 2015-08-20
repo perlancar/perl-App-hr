@@ -1,5 +1,12 @@
 Revision history for App-hr
 
+0.22    2015-08-20 (PERLANCAR)
+
+	- Add options: --space-before (-b) & --space-after (-a).
+
+	- Add option: --height (-H).
+
+
 0.21    2015-08-19 (PERLANCAR)
 
         - No functional changes.
