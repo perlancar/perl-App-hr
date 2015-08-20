@@ -113,6 +113,18 @@ _
             default => 1,
             cmdline_aliases => {H=>{}},
         },
+        space_before => {
+            summary => 'Number of empty rows before drawing the bar',
+            schema => ['int*', min=>0],
+            default => 0,
+            cmdline_aliases => {b=>{}},
+        },
+        space_after => {
+            summary => 'Number of empty rows after drawing the bar',
+            schema => ['int*', min=>0],
+            default => 0,
+            cmdline_aliases => {a=>{}},
+        },
         pattern => {
             summary => 'Specify a pattern',
             schema => 'str*',
@@ -176,7 +188,12 @@ sub hr_app {
     }
 
     my $res = hr($args{pattern}, $args{color});
-    $res = "$res\n" x $args{height} if $args{height} > 1;
+    $res = join(
+        "",
+        ("\n" x ($args{space_before} // 0)),
+        ("$res\n" x ($args{height} // 1)),
+        ("\n" x ($args{space_after} // 0)),
+    );
 
     [200, "OK", $res];
 }
