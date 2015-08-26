@@ -1,5 +1,14 @@
 Revision history for App-hr
 
+0.23    2015-08-26 (PERLANCAR)
+
+        - No functional changes.
+
+        - [build] Rebuild with updated
+          Pod::Weaver::Section::Completion::PerinciCmdLine (0.13) which
+          generates Completion POD section for Perinci::CmdLine::Inline scripts.
+
+
 0.22    2015-08-20 (PERLANCAR)
 
 	- Add options: --space-before (-b) & --space-after (-a).
