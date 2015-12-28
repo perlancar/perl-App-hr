@@ -24,7 +24,9 @@ use Code::Embeddable; *pick = \&Code::Embeddable::pick;
 
 
 my $term_width;
-if (eval { require Term::Size; 1 }) {
+if (defined $ENV{COLUMNS}) {
+    $term_width = $ENV{COLUMNS};
+} elsif (eval { require Term::Size; 1 }) {
     ($term_width, undef) = Term::Size::chars();
 } else {
     $term_width = 80;
