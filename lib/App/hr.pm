@@ -15,13 +15,11 @@ our @EXPORT_OK = qw(
 
 our %SPEC;
 
-# IFBUILT
-## INSERT_BLOCK_FROM_MODULE: Code::Embeddable pick
-# END IFBUILT
-# IFUNBUILT
-use Code::Embeddable; *pick = \&Code::Embeddable::pick;
-# END IFUNBUILT
-
+# from Code::Embeddable
+sub pick {
+    return undef unless @_;
+    return $_[@_*rand];
+}
 
 my $term_width;
 if (defined $ENV{COLUMNS}) {
