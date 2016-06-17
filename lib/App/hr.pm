@@ -11,6 +11,7 @@ use Exporter;
 our @ISA = qw(Exporter);
 our @EXPORT_OK = qw(
                        hr
+                       hr_r
                );
 
 our %SPEC;
@@ -198,6 +199,13 @@ sub hr_app {
     [200, "OK", $res];
 }
 
+sub hr_r {
+    my $res = hr_app(random_color=>1, random_pattern=>1);
+    my $hr  = $res->[2];
+    return $hr if defined(wantarray);
+    print $hr;
+}
+
 1;
 # ABSTRACT: Print horizontal bar on the terminal
 
@@ -205,18 +213,24 @@ sub hr_app {
 
 =head1 SYNOPSIS
 
- use App::hr qw(hr);
+ use App::hr qw(hr hr_r);
  hr;
 
 Sample output:
 
  =============================================================================
 
+Set pattern:
+
  hr('x----');
 
 Sample output:
 
  x----x----x----x----x----x----x----x----x----x----x----x----x----x----x----x-
+
+Use random color and random pattern:
+
+ hr_r;
 
 You can also use the provided CLI L<hr>.
 
@@ -235,6 +249,11 @@ defautl is C<=>.
 
 Under Windows, will shave one character at the end because the terminal cursor
 will move a line down when printing at the last column.
+
+
+=head2 hr_r => optional STR
+
+Like C<hr>, but will set random pattern and random color.
 
 
 =head1 SEE ALSO
