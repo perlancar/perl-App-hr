@@ -1,5 +1,10 @@
 Revision history for App-hr
 
+0.25    2016-06-17 (PERLANCAR)
+
+	- Add hr_r().
+
+
 0.24    2015-12-28 (PERLANCAR)
 
 	- Observe COLUMNS environment variable.
