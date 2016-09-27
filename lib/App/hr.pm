@@ -52,9 +52,9 @@ $SPEC{hr_app} = {
     summary => 'Print horizontal bar on the terminal',
     description => <<'_',
 
-`hr` can be useful as a marker/separator, especially if you use other commands
-that might produce a lot of output, and you need to scroll back lots of pages to
-see previous output. Example:
+<prog:hr> can be useful as a marker/separator, especially if you use other
+commands that might produce a lot of output, and you need to scroll back lots of
+pages to see previous output. Example:
 
     % hr; command-that-produces-lots-of-output
     ============================================================================
@@ -90,7 +90,7 @@ Usage:
 
     % hr --help
 
-If you use Perl, you can also use the `hr` function in `App::hr` module.
+If you use Perl, you can also use the `hr` function in <pm:App::hr> module.
 
 _
     args_rels => {
