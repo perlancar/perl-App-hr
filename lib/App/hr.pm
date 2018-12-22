@@ -39,7 +39,20 @@ sub hr {
     if ($^O =~ /MSWin/) {
         substr($hr, -1, 1) = '';
     }
-    if ($color) {
+
+    # should we actually output color?
+    my $do_color = do {
+        if (exists $ENV{NO_COLOR}) {
+            0;
+        } elsif (defined $ENV{COLOR}) {
+            $ENV{COLOR};
+        } else {
+            (-t STDOUT);
+        }
+    };
+    undef $color unless $do_color;
+
+    if (defined $color) {
         require Term::ANSIColor;
         $hr = Term::ANSIColor::colored([$color], $hr);
     }
@@ -237,23 +250,34 @@ You can also use the provided CLI L<hr>.
 
 =head1 prepend:FUNCTIONS
 
-=head2 hr([ PATTERN [, COLOR ] ]) => optional STR
+=head2 hr([ $pattern [, $color ] ]) => optional STR
 
 Print (under void context) or return (under scalar/array context) a horizontal
 ruler with the width of the terminal.
 
 Terminal width is determined using L<Term::Size>.
 
-C<PATTERN> is optional, can be multicharacter, but cannot be empty string. The
+C<$pattern> is optional, can be multicharacter, but cannot be empty string. The
 defautl is C<=>.
 
 Under Windows, will shave one character at the end because the terminal cursor
 will move a line down when printing at the last column.
 
+If C<$color> is set (to a color supported by L<Term::ANSIColor>) I<and> colored
+output is enabled, output will be colored. Colored output is enabled if: 1) no
+C<NO_COLOR> environment variable is defined; 2) C<COLOR> is undefined or true,
+or program is run interactively.
 
 =head2 hr_r => optional STR
 
 Like C<hr>, but will set random pattern and random color.
+
+
+=head1 ENVIRONMENT
+
+=head1 NO_COLOR
+
+=head2 COLOR
 
 
 =head1 SEE ALSO
