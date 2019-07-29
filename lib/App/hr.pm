@@ -26,7 +26,7 @@ my $term_width;
 if (defined $ENV{COLUMNS}) {
     $term_width = $ENV{COLUMNS};
 } elsif (eval { require Term::Size; 1 }) {
-    ($term_width, undef) = Term::Size::chars();
+    ($term_width, undef) = Term::Size::chars(*STDOUT{IO});
 } else {
     $term_width = 80;
 }
