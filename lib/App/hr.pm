@@ -291,6 +291,11 @@ or program is run interactively.
 
 Like C<hr>, but will set random pattern and random color.
 
+=head2 hr_Br => optional STR
+
+Like C<hr>, but will set random pattern and random color and return a blinking
+bar.
+
 
 =head1 ENVIRONMENT
 
