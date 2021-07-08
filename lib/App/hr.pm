@@ -1,6 +1,8 @@
 package App::hr;
 
+# AUTHORITY
 # DATE
+# DIST
 # VERSION
 
 use feature 'say';
@@ -12,6 +14,7 @@ our @ISA = qw(Exporter);
 our @EXPORT_OK = qw(
                        hr
                        hr_r
+                       hr_Br
                );
 
 our %SPEC;
@@ -32,7 +35,7 @@ if (defined $ENV{COLUMNS}) {
 }
 
 sub hr {
-    my ($pattern, $color) = @_;
+    my ($pattern, $color, $blink) = @_;
     $pattern = "=" if !defined($pattern) || !length($pattern);
     my $n  = int($term_width / length($pattern))+1;
     my $hr = substr(($pattern x $n), 0, $term_width);
@@ -51,6 +54,8 @@ sub hr {
         }
     };
     undef $color unless $do_color;
+
+    $hr = "\e[5m$hr\e[0m" if $blink;
 
     if (defined $color) {
         require Term::ANSIColor;
@@ -101,6 +106,8 @@ Usage:
 
     % hr -r  ;# shortcut for --random-pattern --random-color
 
+    % hr -Br ;# a BLINKING random pattern, random color bar
+
     % hr --help
 
 If you use Perl, you can also use the `hr` function in <pm:App::hr> module.
@@ -120,6 +127,11 @@ _
         },
         random_color => {
             schema => ['bool', is=>1],
+        },
+        blink => {
+            summary => 'Return a blinking bar',
+            schema => 'bool*',
+            cmdline_aliases => {B=>{}},
         },
         height => {
             summary => 'Specify height (number of rows)',
@@ -201,7 +213,7 @@ sub hr_app {
         );
     }
 
-    my $res = hr($args{pattern}, $args{color});
+    my $res = hr($args{pattern}, $args{color}, $args{blink});
     $res = join(
         "",
         ("\n" x ($args{space_before} // 0)),
@@ -214,6 +226,13 @@ sub hr_app {
 
 sub hr_r {
     my $res = hr_app(random_color=>1, random_pattern=>1);
+    my $hr  = $res->[2];
+    return $hr if defined(wantarray);
+    print $hr;
+}
+
+sub hr_Br {
+    my $res = hr_app(blink=>1, random_color=>1, random_pattern=>1);
     my $hr  = $res->[2];
     return $hr if defined(wantarray);
     print $hr;
