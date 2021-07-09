@@ -267,6 +267,13 @@ Use random color and random pattern:
 You can also use the provided CLI L<hr>.
 
 
+=head1 DESCRIPTION
+
+A demo screencast:
+
+# IMAGE: share/images/screencast1.gif
+
+
 =head1 prepend:FUNCTIONS
 
 =head2 hr([ $pattern [, $color ] ]) => optional STR
