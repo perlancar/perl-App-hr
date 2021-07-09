@@ -1,6 +1,8 @@
 package App::hr;
 
+# AUTHORITY
 # DATE
+# DIST
 # VERSION
 
 use feature 'say';
@@ -246,6 +248,13 @@ Use random color and random pattern:
  hr_r;
 
 You can also use the provided CLI L<hr>.
+
+
+=head1 DESCRIPTION
+
+A demo screencast:
+
+# IMAGE: share/images/screencast1.gif
 
 
 =head1 prepend:FUNCTIONS
