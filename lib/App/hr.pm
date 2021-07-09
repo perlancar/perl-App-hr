@@ -306,7 +306,7 @@ bar.
 
 =head1 ENVIRONMENT
 
-=head1 NO_COLOR
+=head2 NO_COLOR
 
 =head2 COLOR
 
